@@ -68,10 +68,10 @@ class MailSenderController extends Controller
 
             // Contenu de l'e-mail
             $mail->isHTML(true);
-            $mail->Subject = "Formulaire de soumission de: " . $request->noms;
+            $mail->Subject = "Formulaire de soumission de : " . $request->noms;
             $mail->Body    = "<h3>Noms : " . $request->noms . "</h3><br>
                             <h3>Email : " . $request->email . "</h3><br>
-                            <h3>Telephone : " . $request->telephone . "</h3><br>
+                            <h3>Téléphone : " . $request->telephone . "</h3><br>
                             <h3>Message : " . $request->message . "</h3><br>";
 
             // Envoyer l'e-mail au destinataire principal
@@ -81,7 +81,13 @@ class MailSenderController extends Controller
             $mail->clearAddresses();
             $mail->addAddress($request->email);
             $mail->Subject = "Confirmation de réception de votre message";
-            $mail->Body    = "<p>Merci pour votre message. Nous vous contacterons dès que possible.</p>";
+            $mail->Body    = "Cher " . $request->noms . ",<br><br>
+                            Nous vous remercions d'avoir pris le temps de nous contacter. Cet e-mail est pour vous confirmer que nous avons bien reçu votre message. Nous accordons une grande importance à votre demande et nous mettrons tout en œuvre pour y répondre dans les plus brefs délais.<br><br>
+                            Veuillez noter que nous traitons un grand nombre de demandes quotidiennement, mais soyez assuré que nous examinons attentivement chaque message que nous recevons. Votre satisfaction est notre priorité absolue, et nous nous efforçons de vous fournir une réponse complète et précise.<br><br>
+                            Si vous avez des informations supplémentaires ou des détails à ajouter, n'hésitez pas à nous les communiquer. Cela nous aidera à mieux comprendre votre demande et à vous fournir une assistance adaptée.<br><br>
+                            Nous vous remercions encore une fois de nous avoir contactés et nous vous assurons que nous mettons tout en œuvre pour vous apporter une réponse dans les brefs délais.<br><br>
+                            Cordialement,<br>
+                            [noumsi guy junor / AFRO_DEV]";
 
             $mail->send();
 
