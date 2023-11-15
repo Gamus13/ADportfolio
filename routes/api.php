@@ -2,6 +2,7 @@
 
 
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\MailSenderController;
 use App\Http\Controllers\UsersmessageController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -37,3 +38,6 @@ Route::middleware('auth:sanctum')->group(function () {
 });
 
 Route::post('/informations', [UsersmessageController::class, 'store']);
+
+
+Route::post('/send-email', [MailSenderController::class, 'sendEmail'])->name('send.email');

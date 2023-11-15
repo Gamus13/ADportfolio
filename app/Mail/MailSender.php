@@ -15,13 +15,13 @@ try {
   $mail->Host       = 'smtp.gmail.com';
   $mail->SMTPAuth   = true;
   $mail->Username   = 'marcelnoumsi8@gmail.com';
-  $mail->Password   = 'introuvable145';
+  $mail->Password   = 'hcthqhjwosryjfio';
   $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
   $mail->Port       = 587;
 
 
-  $mail->setFrom('your_gmail_username@gmail.com', 'Name');
-  $mail->addAddress('receiver_gmail_id@gmail.com');
+  $mail->setFrom('marcelnoumsi8@gmail.com', 'Marcel');
+  $mail->addAddress('mikatchonko@gmail.com');
   $mail->addReplyTo($_POST['email'], $_POST['name']);
 
   $mail->isHTML(true);
